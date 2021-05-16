@@ -12,7 +12,7 @@ data_gen_args = dict(rotation_range=0.2,
 myGene = trainGenerator(2, 'data/membrane/train', 'image', 'label', data_gen_args)
 model = unet()
 model_checkpoint = ModelCheckpoint('unet_membrane.hdf5', monitor='loss', verbose=1, save_best_only=True)
-model.fit_generator(myGene, steps_per_epoch=1, epochs=1, callbacks=[model_checkpoint])
+model.fit_generator(myGene, steps_per_epoch=2000, epochs=5, callbacks=[model_checkpoint])
 
 """
 testGene = testGenerator("data/membrane/test")
